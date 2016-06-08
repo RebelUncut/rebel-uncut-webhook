@@ -1,0 +1,33 @@
+.section-header .clients {
+	margin-bottom: 2em;
+}
+
+.client-logos {	
+	@include outer-container;
+	padding: 0 $side-padding;
+	margin-top: -4em;
+	margin-bottom: 2em;
+	.inner {
+		@include span-columns(12);
+	}
+	img {
+		@include span-columns(2.4);
+		@include omega(5n);
+		padding: 1.5em;
+	}
+	@media screen and (max-width: $medium-screen) {
+		padding: 0 $side-padding $side-padding;
+		img {
+			@include span-columns(3);
+			@include omega-reset(5n);
+			@include omega(4n);
+		}
+	}
+	@media screen and (max-width: $small-screen) {
+		img {
+			@include span-columns(6);
+			@include omega-reset(4n);
+			@include omega(2n);
+		}
+	}
+}

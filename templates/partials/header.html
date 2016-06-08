@@ -1,0 +1,13 @@
+<header>
+  <div class="wrapper">
+    <div class="inner"><a href="/" class="logo"><img src="/static/images/logo-purple.png"></a>
+      <nav>
+        <ul>
+          {% for link in cms.globalsettings.nav %}
+            <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

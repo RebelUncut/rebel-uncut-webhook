@@ -1,0 +1,48 @@
+#what-we-do {
+	background: $color-accent;
+	margin-bottom: 3em;
+	.inner {
+		@include outer-container;
+		padding: 3em 2em;
+	}
+	* {
+		color: white;
+	}
+	h2 {
+		text-transform: uppercase;
+		font-size: 2em;
+		margin-bottom: 1em;
+	}
+	.lists {
+		@include span-columns(12);
+	}
+	ul {
+		@include span-columns(4 of 12);
+		@include omega(3n);
+		font-size: 1.25em;
+		h3 {
+			font-size: 1.5em;
+			i {
+				margin-right: 0.5em;
+			}
+		}
+		li {
+
+		}
+	}
+	@media screen and (max-width: $medium-screen) {
+		h2 {
+			font-size: 2em;
+			text-align: center;
+		}
+		ul {
+			@include span-columns(12 of 12);
+			margin-bottom: 2em;
+			text-align: center;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+

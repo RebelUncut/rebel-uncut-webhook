@@ -1,0 +1,50 @@
+{% extends "templates/partials/base.html" %}
+{% block title %}{% parent %} - {{ cms.workpage.name }}{% endblock %}
+{% block content %}
+
+  {% set case_studies = cms.casestudies|sort('publish_date', true) %}
+  
+  <div class="page-title">
+    <h1>{{ cms.workpage.name }}</h1>
+    <p>{{ cms.workpage.subtitle }} </p>
+  </div>
+
+  <div id="stories">
+    <ul>
+      {% for project in case_studies %}
+        <li>
+          <a href="{{ url(project) }}">
+            <img src="{{ project.main_image.url }}">
+            <div class="meta">
+              <h2>{{ project.name }}</h2>
+              <h3>{{ project.client }}</h3>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2 class="section-header other">Want more?</h2>
+
+  <div id="stories-more-work">
+    <ul>
+      {% for project in cms.workpage.our_work %}
+      <li>
+        <img src="{{ project.image.url }}">
+        <h3>{{ project.name }}</h3>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h2 class="section-header clients">Our Clients</h2>
+
+  <div class="client-logos">
+    <div class="inner">
+      {% for logo in cms.workpage.clients %}
+      <img src="{{logo.logo.url}}">
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

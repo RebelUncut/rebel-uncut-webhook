@@ -1,0 +1,26 @@
+{% extends "templates/partials/base.html" %}
+{% block title %}{% parent %} - {{ cms.films.name }}{% endblock %}
+{% block content %}
+  <div class="page-title">
+    <h1>{{ cms.films.name }}</h1>
+    <p>{{ cms.films.header_sentence }}</p>
+  </div>
+  <div id="films">
+    <ul>
+      {% for film in cms.films.film_list %}
+        <li style="background: {{ film.color }};">
+          <div class="inner">
+            <img src="{{ film.image.url }}">
+            <div class="meta">
+              <h2>{{ film.name }}</h2>
+              <div class="info">
+                {{ film.points|markdown }}
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
+

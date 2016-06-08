@@ -1,0 +1,105 @@
+body.work-single {
+	#hero {
+		min-height: 50vh;
+		background-position: center center;
+	}
+	#case {
+		.meta {
+			h2 {
+				font-size: 1.5em;
+				margin-bottom: 2em;
+			}
+		}
+	}
+	section {
+		display: flex;
+		margin-bottom: 2.5em;
+
+		.content, 
+		.image {
+			width: 50%;
+		}
+
+		.content {
+			.inner {
+				background: white;
+				width: 80%;
+				margin: 5em 0;
+				h2 {
+					font-weight: bold;
+					color: $color_accent;
+					margin-bottom: 1em;
+					font-size: 1.5em;
+				}
+				p {
+					margin-bottom: 0 !important;
+					line-height: 2;
+				}
+			}
+		}
+
+		.image {
+			background-size: cover;
+			background-position: center center;
+		}
+
+		&:nth-child(odd) {
+			.image {
+				order: 1;
+			}
+			.content {
+				order: 2;
+				.inner {
+					margin-left: 20%;
+				}
+			}
+		}
+	}
+	.case-study-quote {
+		margin-bottom: 4rem;
+		color: white;
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+@media screen and (max-width: $medium-screen) {
+	body.work-single {
+		#case {
+			padding-bottom: 0;
+		}
+		section {
+			flex-direction: column;
+			margin-bottom: 0;
+			.content,
+			.image {
+				width: 100%;
+				margin-bottom: 3em;
+			}
+			.content .inner {
+				width: 100%;
+				margin: 0;
+			}
+			.image {
+				height: 25vh;
+			}
+			&:nth-child(even) {
+				.image {
+					display: none;
+				}
+			}
+			&:nth-child(odd) {
+				.content .inner {
+					margin-left: 0;
+				}
+			}
+		}
+		.case-study-quote {
+			padding: 4rem 2.5rem;
+			.inner {
+				padding: 0;
+			}
+		}
+	}
+}

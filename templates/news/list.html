@@ -1,0 +1,29 @@
+{% extends "templates/partials/base.html" %}
+
+{% block title %}{% parent %} - {{ cms.newspage.name }}{% endblock %}
+
+{% block content %}
+
+  {% set news = cms.news|sort('publish_date', true) %}
+
+  <div class="page-title">
+    <h1>{{ cms.newspage.name }}</h1>
+    <p>{{ cms.newspage.page_header }}</p>
+  </div>
+  <div id="updates">
+    <ul>
+      {% for post in news %}
+        <li>
+          <a href="{{ url(post) }}">
+            <img src="{{ post.image.url }}">
+            <div class="meta">
+              <h2>{{ post.name }}</h2>
+              <p>{{ post.excerpt }}</p>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock %}

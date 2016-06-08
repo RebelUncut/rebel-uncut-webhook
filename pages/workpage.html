@@ -1,0 +1,80 @@
+{# ------------------------------------------------------- #}
+{# ONE OFF VIEW workpage #}
+{# This page can use any data from http:localhost:2000/cms/#/form/workpage/ #}
+{# Webhook uses the SWIG.js (like Djagno/Twig) templating system. Their documentation is here: #}
+{# http://paularmstrong.github.io/swig/docs/tags/ #}
+{# Learn about calling data into Webhook pages here: #}
+{# http://www.webhook.com/docs/template-rules-and-filters/ #}
+{# ------------------------------------------------------- #}
+{# Confused what extends and blocks do? Watch a primer: #}
+{# http://www.webhook.com/docs/template-inheritance-blocks/ #}
+{% extends "templates/partials/base.html" %}
+{# This sets our page <title>. It will append this workpage's name to the site title defined in base.html #}
+{% block title %}{% parent %} - {{ cms.workpage.name }}{% endblock %}
+{% block content %}
+  <h1>{{ cms.workpage.name }}</h1>
+  <ul>
+      <li>
+        <strong>Name: </strong>
+        {{ cms.workpage.name }}
+      </li>
+      <li>
+        <strong>Create Date: </strong>
+        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
+        {{ cms.workpage.create_date|date('F d Y') }}
+      </li>
+      <li>
+        <strong>Last Updated: </strong>
+        {# Format the date. You can use PHP's date function to format as needed. http://php.net/manual/en/function.date.php #}
+        {{ cms.workpage.last_updated|date('F d Y') }}
+      </li>
+      <li>
+        <strong>Subtitle: </strong>
+        {{ cms.workpage.subtitle }}
+      </li>
+      <li>
+        <strong>Our Work: </strong>
+        {# Loop of your Repeatable Form items. Remember, you can sort the order in your CMS if you need. #}
+        <ul>
+        {% for row in cms.workpage.our_work %}
+            <li>
+              <strong>Name: </strong>
+              {{ row.name }}
+            </li>
+            <li>
+              <strong>Image: </strong>
+              {# You can pull out a lot more information from the image property. Info here: #}
+                {# http://www.webhook.com/docs/widget-template-reference/#image #}
+                <img src="{{ row.image|imageSize(200, 200) }}" />
+            </li>
+        {% endfor %}
+        </ul>
+      </li>
+      <li>
+        <strong>Clients: </strong>
+        {# Loop of your Repeatable Form items. Remember, you can sort the order in your CMS if you need. #}
+        <ul>
+        {% for row in cms.workpage.clients %}
+            <li>
+              <strong>Logo: </strong>
+              {# You can pull out a lot more information from the image property. Info here: #}
+                {# http://www.webhook.com/docs/widget-template-reference/#image #}
+                <img src="{{ row.logo|imageSize(200, 200) }}" />
+            </li>
+            <li>
+              <strong>Homepage: </strong>
+              {{ row.homepage }}
+            </li>
+        {% endfor %}
+        </ul>
+      </li>
+      <li>
+        <strong>Preview URL: </strong>
+        {{ cms.workpage.preview_url }}
+      </li>
+      <li>
+        <strong>Slug: </strong>
+        {{ cms.workpage.slug }}
+      </li>
+  </ul>
+{% endblock %}

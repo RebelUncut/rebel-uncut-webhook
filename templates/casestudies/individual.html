@@ -1,0 +1,29 @@
+{% extends "templates/partials/base.html" %}
+{% block title %}{% parent %} - {{ item.name }}{% endblock %}
+{% block body_attributes %}class="work-single"{% endblock %}
+{% block content %}
+  <div id="hero" style="background-image: url({{ item.main_image.url }});"></div>
+    <div id="case">
+      <div class="meta">
+        <h1 class="job">{{ item.name }}</h1>
+        <h2 class"intro">{{ item.sections[0].text }}</h2>
+      </div>
+      {% for section in item.sections|slice(1, 10) %}
+        <section>
+          <div class="content">
+            <div class="inner">
+              <h2>{{ section.title }}</h2>
+              <p>{{ section.text }}</p>
+            </div>
+          </div>
+          <div style="background-image: url({{ section.image.url }});" class="image"></div>
+        </section>
+      {% endfor %}
+    </div>
+    <div class="case-study-quote">
+      <div class="inner">
+        <p>"{{ item.quote }}"</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

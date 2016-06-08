@@ -1,0 +1,9 @@
+{% extends "templates/partials/base.html" %}
+{% block title %}{% parent %} - {{ cms.newspage.name }}{% endblock %}
+{% block content %}
+  <div id="hero" style="background-image: url({{ item.image.url }});"></div>
+      <div id="case">
+        <h1 class="title">{{ item.name }}</h1>
+        <article>{{ item.article|safe }}</article>
+      </div>
+{% endblock %}

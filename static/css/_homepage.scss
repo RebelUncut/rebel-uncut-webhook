@@ -1,0 +1,114 @@
+body.homepage {
+	.page header {
+		display: none; 
+	}
+}
+
+.landing-block {
+	min-height: 100vh;
+	padding: 1em;
+	border: 1em solid white;
+	display: flex;
+	flex-direction: row; 
+	justify-content: space-between;
+	* {
+		color: white;
+	}
+	.left {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		.top {
+			img {
+				height: 5em;
+			}
+			h1 {
+				font-weight: bold;
+				text-transform: uppercase;
+				font-style: italic;
+				font-size: 1em;
+			}
+			h2 {
+				font-size: 1.5em;
+				margin-top: 1em;
+				line-height: 1.5;
+			}
+			a {
+				font-weight: bold;
+				border: 2px solid white; 
+				padding: 0.5em 1em;
+				display: inline-block;
+				margin-top: 1.5em; 
+				&:hover {
+					background: white;
+				}
+			}
+		}
+		.bottom {
+			margin-top: 2em;
+			a {
+				margin: 0 1em 0 0;
+				display: inline-block;
+				font-size: 1.25em;
+			}
+		}
+	}
+	.right {
+		ul {
+			li {
+				display: inline;
+				a {
+					font-size: 1.25em;
+					margin-right: 0.5em;
+					margin-bottom: 1em;
+					display: inline-block;
+					&:hover {
+						color: white;
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+	@media screen and (max-width: $medium-screen) {
+		flex-direction: column-reverse;
+		min-height: 0;
+		.left .top a {
+			display: none;
+		}
+		.right ul {
+			margin-bottom: 1em;
+			li a {
+				margin-bottom: 0.5em;
+			}
+		}
+	}
+}
+
+.landing-copy {
+	@include outer-container;
+	padding: 2em 1em;
+	text-align: center;
+	font-size: 2em;
+	color: $color-accent;
+	border-width: 0.5em;
+	h2 {
+		line-height: 1.5;
+	}
+	.trusted-logos {
+		@include span-columns(12);
+		margin-top: 1em;
+		img {
+			@include span-columns(2 of 12);
+			@include omega(6n);
+			padding: 0.5em; 
+		}
+	}
+	@media screen and (max-width: $medium-screen) {
+		padding: 1em;
+		font-size: 1.25em;
+		.trusted-logos {
+			display: none;
+		}
+	}
+}

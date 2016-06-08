@@ -1,0 +1,94 @@
+{% extends "templates/partials/base.html" %}
+{% block title %}{% parent %} - Homepage{% endblock %}
+
+{% set case_studies = cms.casestudies|sort('publish_date', true) %}
+{% set news = cms.news|sort('publish_date', false) %}
+
+{% block body_attributes %}class="homepage"{% endblock %}
+
+{% block content %}
+
+  <div class="landing-block">
+    <div class="left">
+      <div class="top">
+        <div class="logo">
+          <img src="/static/images/logo-white.png" alt="Rebel Uncut Logo">
+        </div>
+        <h1>{{ cms.homepage.hero_title }}</h1>
+        <a href="{{ cms.homepage.hero_button_url }}" class="cta">{{ cms.homepage.hero_button_text }}</a>
+      </div>
+      <div class="bottom">
+        <div class="social">
+          <a href="http://facebook.com/rebeluncut"><i class="fa fa-facebook"></i></a>
+          <a href="http://twitter.com/rebeluncut"><i class="fa fa-twitter"></i></a>
+        </div> 
+        <div class="off-site">
+          <a href="mailto:{{ cms.globalsettings.email }}">{{ cms.globalsettings.email }}</a>
+          <a href="tel:{{ cms.globalsettings.phone }}">{{ cms.globalsettings.phone }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <ul>
+        {% for link in cms.globalsettings.nav %}
+          <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="landing-copy">
+    <h2>{{ cms.homepage.hero_subtitle }}</h2>
+    <div class="trusted-logos">
+      {% for logo in cms.workpage.clients %}
+        {% if logo.homepage %}
+          <img src="{{logo.logo.url}}">
+        {% endif %}
+      {% endfor %}
+  </div>
+  </div>
+
+  <div id="what-we-do">
+    <div class="inner">
+      <h2>What we do</h2>
+      <div class="lists">
+        <ul>
+          <h3><i class="fa fa-film"></i>Video</h3>
+          {% for service in cms.homepage.video_services %}
+            <li>{{ service.name }}</li>
+          {% endfor %}
+        </ul>
+        <ul>
+          <h3><i class="fa fa-paint-brush"></i>Creative</h3>
+          {% for service in cms.homepage.creative_services %}
+            <li>{{ service.name }}</li>
+          {% endfor %}
+        </ul>
+        <ul>
+          <h3><i class="fa fa-code"></i>Digital</h3>
+          {% for service in cms.homepage.digital_services %}
+            <li>{{ service.name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="updates">
+    <h1>News</h1>
+    <ul>
+      {% for post in news|slice(0, 3) %}
+        <li>
+          <a href="{{ url(post) }}">
+            <img src="{{ post.image.url }}">
+            <div class="meta">
+              <h2>{{ post.name }}</h2>
+              <p>{{ post.excerpt }}</p>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock %}

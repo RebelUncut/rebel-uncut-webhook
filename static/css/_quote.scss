@@ -1,0 +1,40 @@
+.case-study-quote {
+	background-image: url(/static/images/trianglify.png);
+	@include prefix((background-size: cover), webkit moz ms o);
+	display: block;
+	width: 100%;
+	font-size: 1.5em;
+	line-height: 2;
+	blockquote {
+		color: white;
+		font-weight: bold;
+		text-align: center;
+		-webkit-margin-before: 0;
+		-webkit-margin-after: 0;
+		-webkit-margin-start: 0;
+		-webkit-margin-end: 0;
+		p {
+			display: inline;
+		}
+		&:before,
+		&:after {
+			content: '"';
+			display: inline;
+		}
+	}
+	cite {
+		text-align: center;
+		color: white;
+		margin-top: 1em;
+		display: block;
+		&:before {
+			content: "-";
+			margin-right: .5em;
+		}
+	}
+	.inner {
+		@include outer-container;
+		text-align: center;
+		padding: ($side-padding * 2) $side-padding ;
+	}
+}
