@@ -1685,8 +1685,7 @@ body.homepage .page header {
   padding: 1em;
   border: 1em solid white;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between; }
+  flex-direction: column; }
   .landing-block * {
     color: white; }
   .landing-block .top {
