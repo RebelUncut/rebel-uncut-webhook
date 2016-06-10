@@ -4,7 +4,7 @@
       <nav>
         <ul>
           {% for link in cms.globalsettings.nav %}
-            <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+            <li><a href="{{ link.url }}" id="{{ link.text }}">{{ link.text }}</a></li>
           {% endfor %}
         </ul>
       </nav>

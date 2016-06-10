@@ -1,0 +1,22 @@
+{% extends "templates/partials/base.html" %}
+{% block title %}{% parent %} - {{ cms.team.name }}{% endblock %}
+{% block body_attributes %}class="team"{% endblock %}
+
+{% block content %}
+  <div class="page-title">
+    <h1>{{ cms.team.name }}</h1>
+    <h2>{{ cms.team.page_header }}</h2>
+    <p>{{ cms.team.page_description }}</p>
+  </div>
+  <ul class="team">
+    {% for person in cms.team.team_members %}
+      <li>
+        <img src="{{ person.image_person|imageSize(200) }}" alt="Image of {{ person.name }}" class="headshot">
+        <img src="{{ person.image_alter_ego|imageSize(200) }}" alt="Image of {{ person.alter_ego }}" class="hero">
+        <h2>{{ person.name }}</h2>
+        <h3 class="role">{{ person.role }}</h3>
+        <h3 class="hero">Alter Ego -  {{ person.alter_ego }}</h3>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
