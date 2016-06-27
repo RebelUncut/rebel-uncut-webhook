@@ -5,7 +5,7 @@ body.homepage {
 }
 
 .landing-block {
-	min-height: 100vh;
+	min-height: calc(100vh - 7.5rem);
 	padding: 1em;
 	border: 1em solid white;
 	display: flex;
@@ -87,13 +87,14 @@ body.homepage {
 
 .landing-copy {
 	@include outer-container;
-	padding: 2em 1em;
+	padding: 1em;
 	text-align: center;
 	font-size: 2em;
 	color: $color-accent;
 	border-width: 0.5em;
 	h2 {
 		line-height: 1.5;
+		font-size: 1.25rem;
 	}
 	.trusted-logos {
 		@include span-columns(12);

@@ -936,8 +936,10 @@ body.work-single .case-study-quote {
     padding: 4rem 2.5rem; }
     body.work-single .case-study-quote .inner {
       padding: 0; } }
-.section-header .clients {
-  margin-bottom: 2em; }
+@media screen and (max-width: 500px) {
+  .section-header.clients {
+    margin-bottom: 1em !important;
+    float: left !important; } }
 
 .client-logos {
   max-width: 68rem;
@@ -1003,7 +1005,9 @@ body.work-single .case-study-quote {
       .client-logos img:nth-child(2n) {
         margin-right: 0; }
       .client-logos img:nth-child(2n+1) {
-        clear: left; } }
+        clear: left; }
+    .client-logos.work img:nth-child(n+7) {
+      display: none; } }
 
 .case-study-quote {
   background-image: url(/static/images/trianglify.png);
@@ -1511,7 +1515,7 @@ body.work h2.section-header.clients {
         display: none; } }
 @media screen and (max-width: 500px) {
   #stories {
-    margin-top: 2.5em; }
+    margin-top: 0; }
     #stories h1 {
       font-size: 1.25em; }
     #stories ul {
@@ -1534,6 +1538,9 @@ body.work h2.section-header.clients {
           font-size: 1.125em; }
     #stories-more-work {
       display: none; }
+
+  h2.want-more {
+    display: none !important; }
 
   body.work .section-header.other {
     display: none; }
@@ -1681,7 +1688,7 @@ body.homepage .page header {
   display: none; }
 
 .landing-block {
-  min-height: 100vh;
+  min-height: calc(100vh - 7.5rem);
   padding: 1em;
   border: 1em solid white;
   display: flex;
@@ -1744,7 +1751,7 @@ body.homepage .page header {
   padding: 0 2.5em;
   margin-left: auto;
   margin-right: auto;
-  padding: 2em 1em;
+  padding: 1em;
   text-align: center;
   font-size: 2em;
   color: #5F4273;
@@ -1754,7 +1761,8 @@ body.homepage .page header {
     content: "";
     display: table; }
   .landing-copy h2 {
-    line-height: 1.5; }
+    line-height: 1.5;
+    font-size: 1.25rem; }
   .landing-copy .trusted-logos {
     float: left;
     display: block;

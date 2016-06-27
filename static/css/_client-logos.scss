@@ -1,5 +1,8 @@
-.section-header .clients {
-	margin-bottom: 2em;
+.section-header.clients {
+	@media screen and (max-width: $small-screen) {
+		margin-bottom: 1em !important;
+		float: left !important;
+	}
 }
 
 .client-logos {	
@@ -28,6 +31,9 @@
 			@include span-columns(6);
 			@include omega-reset(4n);
 			@include omega(2n);
+		}
+		&.work img:nth-child(n+7) { 
+			display: none;
 		}
 	}
 }

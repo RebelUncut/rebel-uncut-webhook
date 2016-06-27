@@ -10,9 +10,10 @@
 	$('.landing-block').vide({
 		mp4: '/static/files/showreel',
 		webm: '/static/files/showreel',
-		poster: '/static/files/showreel-poster'
+		poster: '/static/images/showreel-poster.jpg'
 	}, {
-		bgColor: '#543869'
+		bgColor: '#543869',
+		className: 'vide-container'
 	});
 
 // Header

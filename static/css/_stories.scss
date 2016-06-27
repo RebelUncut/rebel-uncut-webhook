@@ -97,7 +97,7 @@ body.work h2.section-header.clients {
 
 @media screen and (max-width: $small-screen) {
 	#stories {
-		margin-top: 2.5em;
+		margin-top: 0;
 		h1 {
 			font-size: 1.25em;
 		}
@@ -121,6 +121,9 @@ body.work h2.section-header.clients {
 		&-more-work {
 			display: none;
 		}
+	}
+	h2.want-more {
+		display: none !important;
 	}
 	body.work .section-header.other {
 		display: none;
