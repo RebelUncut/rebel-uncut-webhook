@@ -7,15 +7,6 @@
 	// 	poster: /static/files/showreel-poster
 	// }
 
-	$('.landing-block').vide({
-		mp4: '/static/files/showreel',
-		webm: '/static/files/showreel',
-		poster: '/static/images/showreel-poster.jpg'
-	}, {
-		bgColor: '#543869',
-		className: 'vide-container'
-	});
-
 // Header
 
 	$("header nav").height($("header a.logo").height());
@@ -23,6 +14,18 @@
 // Hero
 	
 	$("#hero .wrapper").height($("#hero").height());
+
+	$(".volume-toggle i").click(function(){
+		if($("video").prop('muted') == false) {
+			$("video").prop('muted', true);
+			$(this).removeClass("fa-volume-up");
+			$(this).addClass("fa-volume-off");
+		} else {
+			$("video").prop('muted', false);
+			$(this).removeClass("fa-volume-off");
+			$(this).addClass("fa-volume-up");
+		}
+	});
 
 // Case Study
 

@@ -23,6 +23,9 @@
             <li><a href="{{ link.url }}" id="{{ link.text }}">{{ link.text }}</a></li>
           {% endfor %}
         </ul>
+        <div class="volume-toggle">
+          <i class="fa fa-volume-off"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -68,4 +71,20 @@
     <a href="http://facebook.com/rebeluncut" target="_blank">Get latest updates about the team and our work by following us on Facebook</a>
   </div>
 
+{% endblock %}
+
+{% block scripts_extra %}
+  <script>
+    $('.landing-block').vide({
+      mp4: '{{ cms.homepage.showreel_mp4.url }}',
+      webm: '{{ cms.homepage.showreel_webm.url }}',
+      poster: '{{ cms.homepage.showreel_image_fallback.url }}'
+    }, {
+      bgColor: '#543869',
+      className: 'vide-container',
+      muted: true,
+      loop: true,
+      posterType: 'jpg'
+    });
+  </script>
 {% endblock %}

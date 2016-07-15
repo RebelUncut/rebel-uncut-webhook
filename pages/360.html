@@ -1,0 +1,72 @@
+{% extends "templates/partials/base.html" %}
+{% block title %}{% parent %} - 360°{% endblock %}
+
+{% block head_extra %}
+<style>
+  header,
+  footer {
+    display: none;
+  }
+  iframe {
+    width: 100vw;
+    height: 80vh;
+    display: block;
+  }
+  @media screen and (max-width: 800px) {
+    iframe {
+      height: 300px !important;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+  <a href="https://www.youtube.com/watch?v={{ cms.temp.id_360_video }}" target="_blank" class="youtube">View on YouTube</a>
+  <iframe src="https://www.youtube.com/embed/{{ cms.temp.id_360_video }}?controls=1&autoplay=1&color=white&loop=1" frameborder="0" allowfullscreen></iframe>
+  <div class="content-360">
+    <div class="first">
+      <div class="inner">
+        <h1>Let’s make something completely revolutionary together,</h1>
+        <h1>and let’s do it in 360&deg;</h1>
+      </div>
+    </div>
+    <div class="inner">
+      <h2 class="center headline">We are completely reimagining the way brands & organisations engage their audience through video.</h2>
+      <p>360&deg; film utilises cutting edge technology to produce an immersive video that you can interact with from every possible angle. Invite your audience to explore your world in the full sphere of 360°, providing a killer experience that can be shared across multiple platforms, and experienced on key sites like Facebook and YouTube.</p>
+      <p>To kick it up even further, we can help you explore the next level of immersion by implementing your content on the latest virtual reality devices. With experience using Google Cardboard, Gear VR and Oculus Rift, together let’s craft an experience that people physically can’t stop themselves from shouting about.</p> 
+      <ul>
+        <li>
+          <i class="fa fa-ticket"></i>
+          <h3>Events</h3>
+        </li>
+        <li>
+          <i class="fa fa-plane"></i>
+          <h3>Travel &amp; Tourism</h3>
+        </li>
+        <li>
+          <i class="fa fa-graduation-cap"></i>
+          <h3>Training</h3>
+        </li>
+        <li>
+          <i class="fa fa-comment-o"></i>
+          <h3>Campaigns</h3>
+        </li>
+        <li>
+          <i class="fa fa-shopping-bag"></i>
+          <h3>Retail &amp; Lifestyle</h3>
+        </li>
+        <li>
+          <i class="fa fa-heart-o"></i>
+          <h3>Experiences</h3>
+        </li>
+      </ul>
+    <p>The shooting capabilities of one camera are powered up by six, as multiple cameras on a GoPro Hero 4 rig shoot crystal clear 2k video across the full 360° field. Our expert team then meticulously stitch together these images, using the latest software for a flawless finish every time. The final video is a perfect representation of the world as we see it everyday, giving audiences the power to choose their viewing angle; to look up, down, side to side, or even spin right round, baby right round. </p>
+    <h2 class="center cta">We have got some insane ideas of how to make this fresh perspective work for you.<br><br>Come on, you know you want to find out more...</h2>
+    </div> 
+    <div class="contact-section">
+      <a href="tel:{{ cms.globalsettings.phone }}">{{ cms.globalsettings.phone }}</a>
+      <a href="mailto:{{ cms.globalsettings.email }}">{{ cms.globalsettings.email }}</a>
+      <a href="/"><img src="/static/images/logo-white.png"></a>
+    </div>
+  </div>
+{% endblock %}
