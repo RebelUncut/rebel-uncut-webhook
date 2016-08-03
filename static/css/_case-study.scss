@@ -62,6 +62,15 @@ body.work-single {
 			margin-bottom: 0;
 		}
 	}
+	.embedly {
+		@include outer-container;
+		iframe {
+			@include span-columns(12 of 12);
+			width: 100% !important;
+			height: 500px !important;
+			margin-bottom: 3em !important;
+		}
+	}
 }
 
 @media screen and (max-width: $medium-screen) {
@@ -100,6 +109,10 @@ body.work-single {
 			.inner {
 				padding: 0;
 			}
+		}
+		.embedly iframe {
+			height: 50vh !important;
+			margin-bottom: 5em !important;
 		}
 	}
 }

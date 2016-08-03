@@ -12,15 +12,17 @@
   <div id="stories">
     <ul>
       {% for project in case_studies %}
-        <li>
-          <a href="{{ url(project) }}">
-            <img src="{{ project.main_image.url }}">
-            <div class="meta">
-              <h2>{{ project.name }}</h2>
-              <h3>{{ project.client }}</h3>
-            </div>
-          </a>
-        </li>
+        {% if project.visible_to_public %}
+          <li>
+            <a href="{{ url(project) }}">
+              <img src="{{ project.main_image.url }}">
+              <div class="meta">
+                <h2>{{ project.name }}</h2>
+                <h3>{{ project.client }}</h3>
+              </div>
+            </a>
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </div>

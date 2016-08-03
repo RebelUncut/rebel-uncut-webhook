@@ -1,0 +1,17 @@
+{% extends "templates/partials/base.html" %}
+{% set case_studies = cms.casestudies|sort('publish_date', true) %}
+{% block title %}{% parent %} - {{ cms.all.name }}{% endblock %}
+{% block content %}
+  <ul class="meetings case">
+    <h1>All Case Studies</h1>
+    {% for project in case_studies %}
+      <li>
+        <a href="{{ url(project) }}">{{ project.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <ul class="meetings">
+    {{ cms.all.copy|safe }}
+  </ul>
+{% endblock %}
+ 

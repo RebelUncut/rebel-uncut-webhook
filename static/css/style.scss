@@ -35,7 +35,7 @@
 @import "homepage";
 @import "what-we-do";
 @import "360";
-
+ 
 @import "update-single";
 
 body {
@@ -47,4 +47,8 @@ body {
 
 * {
 	font-weight: normal;
+}
+ul.meetings {
+	@include outer-container;
+	padding: 2.5em 1em;
 }
